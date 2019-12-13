@@ -9,12 +9,32 @@
     </style>
 </head>
 <body>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var x = canvas.width/2;
+        var y = canvas.height-30;
+        var dx = 2;
+        var dy = -2;
 
-<canvas id="myCanvas" width="480" height="320"></canvas>
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, Math.PI*2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
 
-<script>
-	// JavaScript 코드가 여기에 들어갈 것입니다.
-</script>
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBall();
+            x += dx;
+            y += dy;
+        }
+
+        setInterval(draw, 10);
+
+    </script>
 
 </body>
 </html>
